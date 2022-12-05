@@ -52,6 +52,13 @@ public class UserRegistraction {
 		Matcher m = pattern.matcher(rull3);
 		return m.matches();
 	}
+	
+	public boolean rule4Password(String rull4) {
+		String regex = "[A-Z]+[a-z]{5,}[@][0-9]+";
+		Pattern pattern = Pattern.compile(regex);
+		Matcher m = pattern.matcher(rull4);
+		return m.matches();		
+	}
 
 
 }

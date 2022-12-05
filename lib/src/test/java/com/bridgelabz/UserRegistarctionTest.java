@@ -103,4 +103,18 @@ public class UserRegistarctionTest {
 		boolean result = userRegistarction.rule3Password("javabatch219");
 		Assertions.assertEquals(false, result);
 	}
+	
+	/*Rule4 – Has exactly 1 Special Character
+	 All rules must be passed*/
+	@Test
+	public void givenRule_4_ShouldReturnTrue() {
+		boolean result = userRegistarction.rule4Password("Javabatch@219");
+		Assertions.assertEquals(true, result);
+	}
+
+	@Test
+	public void givenRule_4_ShouldReturnFasle() {
+		boolean result = userRegistarction.rule4Password("Javabatch219");
+		Assertions.assertEquals(false, result);
+	}
 }
