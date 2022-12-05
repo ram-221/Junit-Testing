@@ -62,4 +62,31 @@ public class UserRegistarctionTest {
 		boolean result = userRegistarction.phoneNumber("91 5496879626");
 		Assertions.assertEquals(false, result);
 	}
+	
+	/*Rule1 – minimum 8 Characters*/ 
+
+	@Test
+	public void givenRule_1_ShouldReturnTrue() {
+		boolean result = userRegistarction.rule1Password("javabatch");
+		Assertions.assertEquals(true, result);	
+	}
+
+	@Test
+	public void givenRule_1_ShouldReturnFalse() {
+		boolean result = userRegistarction.rule1Password("JavaBatch");
+		Assertions.assertEquals(false, result);
+	}
+	
+	/* Rule2 Should have at least 1 Upper Case - NOTE – All rules must be passed*/
+	@Test
+	public void givenRull_2_ShouldReturnTrue() {
+		boolean result = userRegistarction.rule2Password("Javabatch");
+		Assertions.assertEquals(true, result);
+	}
+
+	@Test
+	public void givenRull_2_ShouldReturnFalse() {
+		boolean result = userRegistarction.rule2Password("javabatch");
+		Assertions.assertEquals(false, result);
+	}
 }
