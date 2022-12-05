@@ -23,8 +23,15 @@ public class UserRegistraction {
 		String regex =  "abc[.][a-zA-Z0-9]*[@]bl[.]co[.][a-zA-Z0-9]*";
 		Pattern pattern = Pattern.compile(regex);
 		Matcher m = pattern.matcher(email);
+		return m.matches();	
+	}
+	
+	public boolean phoneNumber(String pNumber) {
+		String regex = "^[1-9]{2}\\s[6-9]*[0-9]{9}";
+		Pattern pattern = Pattern.compile(regex);
+		Matcher m = pattern.matcher(pNumber);
 		return m.matches();
-		
+
 	}
 
 }
