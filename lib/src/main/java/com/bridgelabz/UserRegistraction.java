@@ -31,7 +31,14 @@ public class UserRegistraction {
 		Pattern pattern = Pattern.compile(regex);
 		Matcher m = pattern.matcher(pNumber);
 		return m.matches();
-
 	}
+	
+	public boolean rule1Password(String rull1) {
+		String regex = "[a-z]{8,}";
+		Pattern pattern = Pattern.compile(regex);
+		Matcher m = pattern.matcher(rull1);
+		return m.matches();	
+	}
+	
 
 }
