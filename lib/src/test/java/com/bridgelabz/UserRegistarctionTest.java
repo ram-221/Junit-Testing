@@ -117,4 +117,17 @@ public class UserRegistarctionTest {
 		boolean result = userRegistarction.rule4Password("Javabatch219");
 		Assertions.assertEquals(false, result);
 	}
+	
+	/*Samples Emails*/
+	@Test
+	public void givenSampleEmail_ShouldReturnTrue() {
+		boolean result = userRegistarction.samplesEmail("abc@yahoo.com");
+		Assertions.assertEquals(true, result);
+	}
+
+	@Test
+	public void givenSampleEmail_ShouldReturnFalse() {
+		boolean result = userRegistarction.samplesEmail("abc@.com.my");
+		Assertions.assertEquals(false, result);
+	}
 }

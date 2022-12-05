@@ -60,5 +60,12 @@ public class UserRegistraction {
 		return m.matches();		
 	}
 
+	public boolean samplesEmail(String email) {
+		String regex = "[a-zA-Z0-9_.]*[-]*[+]*[a-zA-Z0-9]*@[a-zA-Z0-9]+([.][a-zA-Z]+)+";
+		Pattern pattern = Pattern.compile(regex);
+		Matcher m = pattern.matcher(email);
+		return m.matches();	
+	}
+
 
 }
