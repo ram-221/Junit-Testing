@@ -18,5 +18,13 @@ public class UserRegistraction {
 		Matcher m = pattern.matcher(lName);
 		return m.matches();
 	}
+	
+	public boolean emailAddress(String email) {
+		String regex =  "abc[.][a-zA-Z0-9]*[@]bl[.]co[.][a-zA-Z0-9]*";
+		Pattern pattern = Pattern.compile(regex);
+		Matcher m = pattern.matcher(email);
+		return m.matches();
+		
+	}
 
 }

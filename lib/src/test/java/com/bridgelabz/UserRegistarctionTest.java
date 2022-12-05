@@ -34,4 +34,17 @@ public class UserRegistarctionTest {
 			 boolean result = userRegistarction.secondName("Malli");
 			 Assertions.assertEquals(true, result);
 		}
+		
+		/*Email Address Mandatory abc,bl,co and Position @ and . */
+		@Test
+		public void givenEmailAddress_WhenFormat_ShouldReturnTrue() {
+			boolean result = userRegistarction.emailAddress("abc.xyz@bl.co.in");
+			Assertions.assertEquals(true, result);
+		}
+		
+		@Test
+		public void givenEmailAddress_WhenFormat_ShouldReturnFalse() {
+			boolean result = userRegistarction.emailAddress("Abc.xyz@bl.co.in");
+			Assertions.assertEquals(false, result);
+		}
 }
