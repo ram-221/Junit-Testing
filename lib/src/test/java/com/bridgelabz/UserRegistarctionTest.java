@@ -89,4 +89,18 @@ public class UserRegistarctionTest {
 		boolean result = userRegistarction.rule2Password("javabatch");
 		Assertions.assertEquals(false, result);
 	}
+	
+	/*Rule3 Should have at least 1 numeric number in
+         the password - NOTE – All rules must be passed*/
+	@Test
+	public void givenRull_3_ShouldReturnTrue() {
+		boolean result = userRegistarction.rule3Password("Javabatch219");
+		Assertions.assertEquals(true, result);
+	}
+
+	@Test
+	public void givenRull_3_ShouldReturnFalse() {
+		boolean result = userRegistarction.rule3Password("javabatch219");
+		Assertions.assertEquals(false, result);
+	}
 }

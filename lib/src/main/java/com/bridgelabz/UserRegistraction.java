@@ -46,6 +46,12 @@ public class UserRegistraction {
 		Matcher m = pattern.matcher(rull2);
 		return m.matches();	
 	}
+	public boolean rule3Password(String rull3) {
+		String regex = "[A-Z]+[a-z]{6,}[0-9]+";
+		Pattern pattern = Pattern.compile(regex);
+		Matcher m = pattern.matcher(rull3);
+		return m.matches();
+	}
 
 
 }
