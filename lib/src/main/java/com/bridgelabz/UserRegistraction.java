@@ -3,69 +3,106 @@ package com.bridgelabz;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
 public class UserRegistraction {
+	 /*
+    enter valid first name
+     */
+    public boolean validFirstName(String name) throws InvalidInputException {
 
-	public   boolean firstName(String name) {
-		String regex = "^[A-Z]{1}[a-z]{2,}";
-		Pattern pattern = Pattern.compile(regex);
-		Matcher m = pattern.matcher(name);
-		return m.matches();	
-	}
-	
-	public boolean secondName(String lName) {
-		String regex = "^[A-Z]{1}[a-z]{2,}";
-		Pattern pattern = Pattern.compile(regex);
-		Matcher m = pattern.matcher(lName);
-		return m.matches();
-	}
-	
-	public boolean emailAddress(String email) {
-		String regex =  "abc[.][a-zA-Z0-9]*[@]bl[.]co[.][a-zA-Z0-9]*";
-		Pattern pattern = Pattern.compile(regex);
-		Matcher m = pattern.matcher(email);
-		return m.matches();	
-	}
-	
-	public boolean phoneNumber(String pNumber) {
-		String regex = "^[1-9]{2}\\s[6-9]*[0-9]{9}";
-		Pattern pattern = Pattern.compile(regex);
-		Matcher m = pattern.matcher(pNumber);
-		return m.matches();
-	}
-	
-	public boolean rule1Password(String rull1) {
-		String regex = "[a-z]{8,}";
-		Pattern pattern = Pattern.compile(regex);
-		Matcher m = pattern.matcher(rull1);
-		return m.matches();	
-	}
-	
-	public boolean rule2Password(String rull2) {
-		String regex = "[A-Z]+[a-z]{7,}";
-		Pattern pattern = Pattern.compile(regex);
-		Matcher m = pattern.matcher(rull2);
-		return m.matches();	
-	}
-	public boolean rule3Password(String rull3) {
-		String regex = "[A-Z]+[a-z]{6,}[0-9]+";
-		Pattern pattern = Pattern.compile(regex);
-		Matcher m = pattern.matcher(rull3);
-		return m.matches();
-	}
-	
-	public boolean rule4Password(String rull4) {
-		String regex = "[A-Z]+[a-z]{5,}[@][0-9]+";
-		Pattern pattern = Pattern.compile(regex);
-		Matcher m = pattern.matcher(rull4);
-		return m.matches();		
-	}
+        String regex = "^[A-Z]{1}[a-z]{2,}$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(name);
+        boolean result = matcher.matches();
+        System.out.println(result);
+        if (!result) {
+            throw new InvalidInputException("first Name should start with a Cap and should have minimum 3 characters");
+        } else
+            return true;
+    }
+    /*
+    Enter Valid Last name
+     */
 
-	public boolean samplesEmail(String email) {
-		String regex = "[a-zA-Z0-9_.]*[-]*[+]*[a-zA-Z0-9]*@[a-zA-Z0-9]+([.][a-zA-Z]+)+";
-		Pattern pattern = Pattern.compile(regex);
-		Matcher m = pattern.matcher(email);
-		return m.matches();	
-	}
+    public boolean validLastName(String lastName) throws InvalidInputException {
 
+        String regex = "^[A-Z]{1}[a-z]{2,}$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(lastName);
+        boolean result = matcher.matches();
+        System.out.println(result);
+        if (!result) {
+            throw new InvalidInputException("Last Name should start with a Cap and should have minimum 3 chars");
+        } else {
+            return true;
+        }
+    }
+
+    /*
+    Enter valid Email
+     */
+
+    public boolean validEmail(String Email) throws InvalidInputException {
+
+        String regex = "^[a-z]*.[a-z]+@[a-z]+.[a-z]{2,3}(.[a-z]{2})*$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(Email);
+        boolean result = matcher.matches();
+        System.out.println(result);
+        if (!result) {
+            throw new InvalidInputException("Enter valid Email");
+        } else
+            return true;
+    }
+    /*
+    Enter valid mobile number
+     */
+
+    public boolean validMobileNumber(String MobileNumber) throws InvalidInputException {
+
+        String regex = "^[0-9]{2}\\s{0,1}[0-9]{10}$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(MobileNumber);
+        boolean result = matcher.matches();
+        System.out.println(result);
+        if (!result) {
+            throw new InvalidInputException("Enter the Valid Mobile number with county code.");
+        } else
+            return true;
+    }
+
+       
+    /*
+    Password contains atleast 1 Uppercase, 1 Special char, 1 numeric number and minimum 5 char
+    */
+
+    public boolean validSymbolPassword(String password1) throws InvalidInputException {
+
+        String regex = "^[A-Z]{1}+[a-zA-Z]{6,}+[@]{1}[1-9]{1}$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(password1);
+        boolean result = matcher.matches();
+        System.out.println(result);
+        if (!result) {
+            throw new InvalidInputException("Password contains atleast 1 Special Char");
+        } else
+            return true;
+    }
+    /*
+    valid email samples
+     */
+
+    public boolean validEmailSamples(String Email) throws InvalidInputException {
+
+        String regex = "^[a-zA-Z0-9]+(@.+-_][a-zA-Z0-9]+)*[@][a-zA-Z0-9]+[.][a-zA-Z]{2,4}([.][a-zA-Z]{2,4})?";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(Email);
+        boolean result = matcher.matches();
+        System.out.println(result);
+        if (!result) {
+            throw new InvalidInputException("valid email samples");
+        } else
+        return true;
+    }
 
 }
