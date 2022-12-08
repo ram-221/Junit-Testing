@@ -9,9 +9,9 @@ public class UserRegistarctionTest {
 	UserRegistraction user = new UserRegistraction();
 
     @Test
-    public void giveFirstName_shouldGiveTrue() {
+    public void giveFirstName_shouldReturnTrue() {
         try {
-            boolean result = user.validFirstName("Ramesh");
+            boolean result = user.validFirstName.validate("Ramesh");
             Assertions.assertEquals(true,result);
             System.out.println("First name is valid");
         } catch (InvalidInputException e) {
@@ -20,9 +20,9 @@ public class UserRegistarctionTest {
     }
 
     @Test
-    public void giveFirstName_ShouldGiveFalse() {
+    public void giveFirstName_ShouldReturnFalse() {
         try {
-            boolean result = user.validFirstName("ramesh");
+            boolean result = user.validFirstName.validate("ramesh");
             Assertions.assertEquals(false,result);
             System.out.println("First name is valid:");
         } catch (InvalidInputException e) {
@@ -31,9 +31,9 @@ public class UserRegistarctionTest {
     }
 
     @Test
-    public void giveLastName_shouldGiveTrue() {
+    public void giveLastName_shouldReturnTrue() {
         try {
-            boolean result = user.validLastName("Malli");
+            boolean result = user.validLastName.validate("Malli");
             Assertions.assertEquals(true,result);
             System.out.println("Last name is valid");
         } catch (InvalidInputException e) {
@@ -42,9 +42,9 @@ public class UserRegistarctionTest {
     }
 
     @Test
-    public void givelastName_shouldGiveFalse() {
+    public void giveLastName_shouldReturnFalse() {
         try {
-            boolean result = user.validLastName("malli");
+            boolean result = user.validLastName.validate("malli");
             Assertions.assertEquals(false,result);
             System.out.println("Last name is valid");
         } catch (InvalidInputException e) {
@@ -53,9 +53,9 @@ public class UserRegistarctionTest {
     }
 
     @Test
-    public void giveEmail_shouldGiveTrue() {
+    public void giveEmail_shouldReturnTrue() {
         try {
-            boolean result = user.validEmail("abc.xyz@bl.co.in");
+            boolean result = user.validEmail.validate("abc.xyz@bl.co.in");
             Assertions.assertEquals(true,result);
             System.out.println("Email is valid");
         } catch (InvalidInputException e) {
@@ -64,9 +64,9 @@ public class UserRegistarctionTest {
     }
 
     @Test
-    public void giveEmail_shouldGiveFalse() {
+    public void giveEmail_shouldReturnFalse() {
         try {
-            boolean result = user.validEmail("ram221@gmail");
+            boolean result = user.validEmail.validate("ram221@gmail");
             Assertions.assertEquals(false,result);
             System.out.println("Email is valid");
         } catch (InvalidInputException e) {
@@ -75,9 +75,9 @@ public class UserRegistarctionTest {
     }
 
     @Test
-    public void givenMobileNo_ShouldReturnsTrue() {
+    public void givenMobileNo_ShouldReturnTrue() {
         try {
-            boolean result = user.validMobileNumber("91 8431510221");
+            boolean result = user.validMobileNumber.validate("91 8431510221");
             Assertions.assertEquals(true,result);
             System.out.println("Mob no. is valid");
         } catch (InvalidInputException e) {
@@ -88,7 +88,7 @@ public class UserRegistarctionTest {
     @Test
     public void givenMobileNo_ShouldReturnsFalse() {
         try {
-            boolean result = user.validMobileNumber("956258459");
+            boolean result = user.validMobileNumber.validate("956258459");
             Assertions.assertEquals(false,result);
             System.out.println("Mob no is valid");
         } catch (InvalidInputException e) {
@@ -96,22 +96,32 @@ public class UserRegistarctionTest {
         }
     }
 
+    @Test
+    public void givenPassword__ShouldReturnTrue() {
+    	try {
+    		boolean result = user.validPassword.validate("Rameshm@1");
+    		Assertions.assertEquals(true, result);
+    		System.out.println("password is valid");
+    	} catch (InvalidInputException e) {
+    		System.out.println("Password is invalid"+e);
+    	}
+    }
 
     @Test
     public void givenPassword__ShouldReturnsFalse() {
         try {
-            boolean result = user.validSymbolPassword("RameshmK@");
+            boolean result = user.validPassword.validate("ram");
             Assertions.assertEquals(false,result);
-            System.out.println("Password Rule 4 is valid");
+            System.out.println("Password  is valid");
         } catch (InvalidInputException e) {
-            System.out.println("Password Rule 4 is invalid"+e);
+            System.out.println("Password  is invalid"+e);
         }
     }
 
     @Test
     public void givenEmailSample_ShouldReturnTrue() {
         try {
-            boolean result = user.validEmailSamples("abc@gmail.com.com");
+            boolean result = user.validEmailSamples.validate("abc@gmail.com.com");
             Assertions.assertEquals(true,result);
             System.out.println("Email sample is valid:");
         } catch (InvalidInputException e) {
@@ -122,7 +132,7 @@ public class UserRegistarctionTest {
     @Test
     public void givenEmailSample_ShouldReturnFalse() {
         try {
-            boolean result = user.validEmailSamples("ram221@.com");
+            boolean result = user.validEmailSamples.validate("ram221@.com");
             Assertions.assertEquals(false,result);
             System.out.println("Email sample is valid");
         } catch (InvalidInputException e) {
